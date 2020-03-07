@@ -16,6 +16,7 @@ img {
 
 /* css for zoom button */
 .example_b {
+  cursor: pointer;
   width: 80px;
   color: #fff !important;
   text-transform: uppercase;

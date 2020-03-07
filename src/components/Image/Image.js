@@ -3,7 +3,7 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from '@material-ui/core/FormLabel';
+import FormLabel from "@material-ui/core/FormLabel";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 require("./image.css");
 
@@ -19,17 +19,17 @@ const Image = props => {
           <React.Fragment>
             <div className="tools">
               <div onClick={zoomIn} className="button_cont" align="center">
-                <a class="example_b">+</a>
+                <a className="example_b">+</a>
               </div>
               <div onClick={zoomOut} className="button_cont" align="center">
-                <a class="example_b">-</a>
+                <a className="example_b">-</a>
               </div>
               <div
                 onClick={resetTransform}
                 className="button_cont"
                 align="center"
               >
-                <a class="example_b">Reset</a>
+                <a className="example_b">Reset</a>
               </div>
             </div>
             <TransformComponent>
@@ -41,7 +41,8 @@ const Image = props => {
         )}
       </TransformWrapper>
       <FormControl component="fieldset">
-      <FormLabel component="legend">Label this animal:-</FormLabel>
+        <FormLabel component="legend">Label this animal:-</FormLabel>
+
         <RadioGroup
           aria-label="position"
           name="position"

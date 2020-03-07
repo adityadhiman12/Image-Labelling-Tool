@@ -16,15 +16,23 @@ export class App extends Component {
       alert("Please select an option!");
     } else {
       const newIndex = this.state.image.index + 1;
+      if (this.state.rvalue === this.state.image.value) {
+        const correctAnswer = this.state.correctAns + 1;
+        this.setState({
+          correctAns: correctAnswer
+        });
+      }
+      console.log(this.state.correctAns);
       if (newIndex > 14) {
         this.setState({
           noMoreImage: true
         });
+      } else {
+        this.setState({
+          image: data.images[newIndex],
+          rvalue: ""
+        });
       }
-      this.setState({
-        image: data.images[newIndex],
-        rvalue: ""
-      });
     }
   };
 
@@ -32,23 +40,19 @@ export class App extends Component {
     this.setState({
       rvalue: event.target.value
     });
-    if (event.target.value === this.state.image.value) {
-      const correctAnswer = this.state.correctAns + 1;
-      this.setState({
-        correctAns: correctAnswer
-      });
-      console.log(this.state.correctAns);
-    }
   };
 
   render() {
     if (this.state.noMoreImage === true) {
-      return <div className="Result">You got {this.state.correctAns} Correct!!</div>;
+      return (
+        <div className="Result">You got {this.state.correctAns} Correct!!</div>
+      );
     }
     return (
       <div className="App">
         <div className="header">Image Labelling Tool</div>
         <Image
+          scale={this.state.defaultScale}
           url={this.state.image.picture}
           rclick={this.radioButtonHandler}
           rvalue={this.state.rvalue}
@@ -58,7 +62,7 @@ export class App extends Component {
           onClick={this.nextImageHandler}
           align="center"
         >
-          <a class="example_c">Next Image</a>
+          <a className="example_c">Next Image</a>
         </div>
       </div>
     );
