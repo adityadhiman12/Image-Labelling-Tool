@@ -2,28 +2,34 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 700px;
+  justify-content: space-evenly;
 }
 img {
   width: 500px;
   height: 500px;
-  border-radius: 5%;
+  border-radius: 15%;
+  border-color: wheat;
+  border: groove;
 }
 
-.tools{
-  display:flex;
+.tools {
+  display: flex;
+  width: 462px;
   justify-content: space-evenly;
 }
 
-/* css for zoom button */
+/* css for zoom buttons */
 .example_b {
   cursor: pointer;
   width: 80px;
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #60a3bc;
+  background: #f39c12;
   padding: 20px;
-  border-radius: 50px;
+  border-radius: 20px;
+  font-weight: 500;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
@@ -35,3 +41,11 @@ img {
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
 }
+
+/* css for radio buttons */
+.radioButtons {
+  background: whitesmoke;
+  width: 100%;
+}
+/*------------------------------*/
+

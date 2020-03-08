@@ -3,13 +3,13 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 require("./image.css");
 
 const Image = props => {
   return (
     <div className="singleImage">
+      {/* Zoom Buttons & Image */}
       <TransformWrapper
         defaultScale={1}
         defaultPositionX={0}
@@ -33,38 +33,40 @@ const Image = props => {
               </div>
             </div>
             <TransformComponent>
-              <div>
+              <div className="animalImage">
                 <img src={props.url} alt="" />
               </div>
             </TransformComponent>
           </React.Fragment>
         )}
       </TransformWrapper>
-      <FormControl component="fieldset">
-        <FormLabel component="legend">Label this animal:-</FormLabel>
 
-        <RadioGroup
-          aria-label="position"
-          name="position"
-          value={props.rvalue}
-          onChange={props.rclick}
-          row
-        >
-          <FormControlLabel
-            value="cat"
-            control={<Radio color="primary" />}
-            label="cat"
-            labelPlacement="start"
-          />
+      {/* Radio Buttons for Selection */}
+      <div className="radioButtons">
+        <FormControl component="fieldset">
+          <RadioGroup
+            aria-label="position"
+            name="position"
+            value={props.rvalue}
+            onChange={props.rclick}
+            row
+          >
+            <FormControlLabel
+              value="cat"
+              control={<Radio color="primary" />}
+              label="CAT"
+              labelPlacement="start"
+            />
 
-          <FormControlLabel
-            value="dog"
-            control={<Radio color="primary" />}
-            label="dog"
-            labelPlacement="start"
-          />
-        </RadioGroup>
-      </FormControl>
+            <FormControlLabel
+              value="dog"
+              control={<Radio color="primary" />}
+              label="DOG"
+              labelPlacement="start"
+            />
+          </RadioGroup>
+        </FormControl>
+      </div>
     </div>
   );
 };

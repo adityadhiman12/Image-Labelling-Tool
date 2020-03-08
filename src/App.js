@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Image from "./components/Image/Image";
+import ResultTable from "./components/ResultTable/ResultTable";
 import "./App.css";
 import data from "./assets/data";
 
@@ -8,21 +9,39 @@ export class App extends Component {
     image: data.images[0],
     noMoreImage: false,
     correctAns: 0,
-    rvalue: ""
+    rvalue: "",
+    noOfCats: 0,
+    noOfDogs: 0
   };
 
+  // --EVENT HANDLERS-- //
   nextImageHandler = () => {
+    //BASE CASE & COUNTING TOTAL NUMBER OF SELECTED CATS & DOGS
     if (this.state.rvalue === "") {
       alert("Please select an option!");
     } else {
-      const newIndex = this.state.image.index + 1;
+      if (this.state.rvalue === "cat") {
+        const totCats = this.state.noOfCats + 1;
+        this.setState({
+          noOfCats: totCats
+        });
+      } else {
+        const totDogs = this.state.noOfDogs + 1;
+        this.setState({
+          noOfDogs: totDogs
+        });
+      }
+      ///////////////////////////////////////////////////
+      //STATEMENT TO CHECK HOW MANY OPTIONS ARE CORRECTLY ANSWERED
       if (this.state.rvalue === this.state.image.value) {
         const correctAnswer = this.state.correctAns + 1;
         this.setState({
           correctAns: correctAnswer
         });
       }
-      console.log(this.state.correctAns);
+      ///////////////////////////////////////////////////
+      // CHANGING THE IMAGE
+      const newIndex = this.state.image.index + 1;
       if (newIndex > 14) {
         this.setState({
           noMoreImage: true
@@ -33,6 +52,7 @@ export class App extends Component {
           rvalue: ""
         });
       }
+      //////////////////////////////////////////////////
     }
   };
 
@@ -41,11 +61,15 @@ export class App extends Component {
       rvalue: event.target.value
     });
   };
+  // --EVENT HANDLERS END-- //
 
   render() {
     if (this.state.noMoreImage === true) {
       return (
-        <div className="Result">You got {this.state.correctAns} Correct!!</div>
+        <ResultTable
+          totalCats={this.state.noOfCats}
+          totalDogs={this.state.noOfDogs}
+        />
       );
     }
     return (

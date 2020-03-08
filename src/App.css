@@ -1,33 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(37, 27, 27);
+}
+
 .App {
   text-align: center;
-  background-color: white;
 }
 
 .header {
   text-align: center;
   font-size: 100px;
-  font-family: cursive;
-}
-
-.Result {
-  font-family: "Hoefler Text", Georgia, "Times New Roman", serif;
-  font-weight: normal;
-  font-size: 100px;
-  letter-spacing: 0.2em;
-  line-height: 1.1em;
-  margin: 0px;
-  text-align: center;
-  text-transform: uppercase;
-  color:#507582;
+  font-family: sans-serif;
+  color: black;
+  background: whitesmoke;
 }
 
 /* css for 'NEXT' button */
+
 .example_c {
   cursor: pointer;
   color: #494949 !important;
   text-transform: uppercase;
   text-decoration: none;
   background: #ffffff;
+  font-weight: 900;
+  width: 400px;
   padding: 20px;
   border: 4px solid #494949 !important;
   display: inline-block;
@@ -35,8 +33,11 @@
 }
 
 .example_c:hover {
-  color: #ffffff !important;
-  background: #f6b93b;
-  border-color: #f6b93b !important;
+  color: black !important;
+  background: #f39c12;
+  font-weight: 700;
+  border-color: #f39c13 !important;
   transition: all 0.4s ease 0s;
 }
+
+/*------------------------------*/
